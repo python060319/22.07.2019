@@ -62,7 +62,9 @@ def getData():
         id = int(input("Please enter ID: "))
     print(persons)
 
-#getData()
+getData()
+
+
 '''
 0 .כיצד אפשר לקבל את כל הערכים הקיימים ב dictionary?
 :כדי List Comprehension ב השתמש ”. I love to eat ice cream in the beach” המשפט נתון. 11
