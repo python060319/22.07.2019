@@ -1,28 +1,43 @@
 # Scope
-x = 1 # here everything is in global scope
-y = 1 # here everything is in global scope
+
+
 
 def foo():
-    global y # will refer to the y in global scope
+    #x = x + 1 -- creates an Error!
+    #x = 2
+    global x
+    x = 2
+    print(f'in foo x = {x}')
+    def moo():
+        print("I am goo!")
+    return x
 
-    # print(x) # this will refer to global scope x
-        # but if you change x in this function - the print will crash!!
-
-    x = 4 # will create a duplicate of x in the internal scope
-    x = x + 1 # not it's ok
-
-    print('inside the function the x is', x)
-
-    y = y + 1 # will change the y in global scope
-    print('inside the function the y is', y)
-
-    def goo():
-        print('goo')
-
-    goo()
+#goo ( foo() )
 
 foo()
-# goo() -- error goo is only known inside foo scope
+#moo()
+print(f'global x is {x}')
 
-print('outside the function the x is', x)
-print('outside the function the y is', y)
+def myAdd(l1):
+    l1.append(1)
+
+def addDict(d1): # d1 = #50
+    d1[1] =12
+    d1 = { } # this does nothing for global scope
+    # d1 = #100
+
+def addNumber(x):
+    x = x + 1
+    print(f'in function x = {x}')
+l2 = [1,2,3]
+myAdd(l2)
+print(l2)
+
+d1 = {8:1}
+addDict(d1)
+print(d1)
+x = 9
+addNumber(x)
+print(x)
+
+
